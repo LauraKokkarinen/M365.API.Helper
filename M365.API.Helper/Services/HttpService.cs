@@ -1,11 +1,11 @@
-﻿using API.Helper.Enums;
-using API.Helper.Interfaces;
+﻿using M365.API.Helper.Enums;
+using M365.API.Helper.Interfaces;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 
-namespace API.Helper.Services
+namespace M365.API.Helper.Services
 {
     public class HttpService : IHttpService
     {

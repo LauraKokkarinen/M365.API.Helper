@@ -1,11 +1,11 @@
 ﻿using Azure.Core;
 using Azure.Identity;
-using API.Helper.Interfaces;
+using M365.API.Helper.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 
-namespace API.Helper.Services
+namespace M365.API.Helper.Services
 {
     public class AuthService(IConfiguration configuration) : IAuthService
     {

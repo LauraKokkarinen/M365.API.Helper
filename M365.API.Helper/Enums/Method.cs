@@ -1,4 +1,4 @@
-﻿namespace API.Helper.Enums
+﻿namespace M365.API.Helper.Enums
 {
     public enum Method
     {

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace API.Helper.Types
+namespace M365.API.Helper.Types
 {
     public class CollectionResponse<T>
     {
