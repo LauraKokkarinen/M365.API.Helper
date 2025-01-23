@@ -25,4 +25,4 @@ jobs:
 
       - name: Publish
         run: >
-          dotnet nuget push PackageUtils.${{ github.ref_name }}.nupkg -s https://nuget.pkg.github.com/laurakokkarinen/index.json -k ${{ secrets.NUGET_AUTH_TOKEN }}
+          dotnet nuget push *.nupkg -s https://nuget.pkg.github.com/laurakokkarinen/index.json -k ${{ secrets.NUGET_AUTH_TOKEN }}
