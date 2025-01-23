@@ -4,3 +4,4 @@
 
 /.vs
 /M365.API.Helper/obj
+/M365.API.Helper/bin/Debug/net8.0
