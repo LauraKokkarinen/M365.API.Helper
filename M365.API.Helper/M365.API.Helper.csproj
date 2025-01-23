@@ -4,17 +4,13 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <!-- NuGet package information -->
     <PackageId>M365.API.Helper</PackageId>
-    <AssemblyName>M365.API.Helper</AssemblyName>
-    <RootNamespace>M365.API.Helper</RootNamespace>
-    <Product>M365.API.Helper</Product>
-    <Title>M365.API.Helper</Title>
     <Authors>Laura Kokkarinen</Authors>
-    <Company>Laura Kokkarinen</Company>
     <PackageDescription>Offers extendable helper classes for calling Microsoft Graph and SharePoint Online REST APIs, including authentication.</PackageDescription>
     <PackageProjectUrl>https://github.com/LauraKokkarinen/M365.API.Helper/pkgs/nuget/M365.API.Helper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/LauraKokkarinen/M365.API.Helper</RepositoryUrl>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
