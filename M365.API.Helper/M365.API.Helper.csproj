@@ -5,15 +5,21 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>M365.API.Helper</PackageId>
-    <Version>1.0.2</Version>
+    <AssemblyName>M365.API.Helper</AssemblyName>
+    <RootNamespace>M365.API.Helper</RootNamespace>
+    <Product>M365.API.Helper</Product>
+    <Title>M365.API.Helper</Title>
     <Authors>Laura Kokkarinen</Authors>
-    <PackageDescription>Offers extendable helper classes for calling Microsoft Graph and SharePoint Online REST APIs.</PackageDescription>
+    <Company>Laura Kokkarinen</Company>
+    <PackageDescription>Offers extendable helper classes for calling Microsoft Graph and SharePoint Online REST APIs, including authentication.</PackageDescription>
+    <PackageProjectUrl>https://github.com/LauraKokkarinen/M365.API.Helper/pkgs/nuget/M365.API.Helper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/LauraKokkarinen/M365.API.Helper</RepositoryUrl>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.Identity" Version="1.13.2" />
+    <PackageReference Include="Azure.Identity" Version="1.13.2" IncludeAssets="" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.1" />
   </ItemGroup>
-
+  
 </Project>
