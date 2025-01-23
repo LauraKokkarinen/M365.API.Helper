@@ -30,7 +30,7 @@ namespace M365.API.Helper.Services
         /// <typeparam name="T">The type of object you are expecting to receive in the response</typeparam>
         /// <param name="url">URL of the request</param>
         /// <returns>A single item deserialized into the provided object type.</returns>
-        private async Task<T?> Get<T>(string url)
+        public async Task<T?> Get<T>(string url)
         {
             var response = await _httpService.GetResponseAsync(url, Method.Get, await GetHeaders());
 
@@ -44,7 +44,7 @@ namespace M365.API.Helper.Services
         /// <param name="url">URL of the request</param>
         /// <param name="items">When recursively paging through the retrieved items, this parameter contains the items collected so far.</param>
         /// <returns>A collection of items deserialized into the provided object type.</returns>
-        private async Task<IEnumerable<T>> GetCollection<T>(string url, IEnumerable<T>? items = null)
+        public async Task<IEnumerable<T>> GetCollection<T>(string url, IEnumerable<T>? items = null)
         {
             items ??= [];
 
@@ -69,7 +69,7 @@ namespace M365.API.Helper.Services
         /// <param name="url">URL of the request</param>
         /// <param name="body">Optional body of the request</param>
         /// <returns>The created object.</returns>
-        private async Task<T?> Post<T>(string url, string? body = null)
+        public async Task<T?> Post<T>(string url, string? body = null)
         {
             var response = await _httpService.GetResponseAsync(url, Method.Post, await GetHeaders(), body);
 
@@ -83,7 +83,7 @@ namespace M365.API.Helper.Services
         /// <param name="url">URL of the request</param>
         /// <param name="body">Optional body of the request</param>
         /// <returns>The updated object.</returns>
-        private async Task<T?> Patch<T>(string url, string body)
+        public async Task<T?> Patch<T>(string url, string body)
         {
             var response = await _httpService.GetResponseAsync(url, Method.Patch, await GetHeaders(), body);
 
@@ -97,7 +97,7 @@ namespace M365.API.Helper.Services
         /// <param name="url">URL of the request</param>
         /// <param name="body">Optional body of the request</param>
         /// <returns>The added object.</returns>
-        private async Task<T?> Put<T>(string url, string body)
+        public async Task<T?> Put<T>(string url, string body)
         {
             var response = await _httpService.GetResponseAsync(url, Method.Put, await GetHeaders(), body);
 
@@ -109,7 +109,7 @@ namespace M365.API.Helper.Services
         /// </summary>
         /// <param name="url">URL of the request</param>
         /// <returns></returns>
-        private async Task Delete(string url)
+        public async Task Delete(string url)
         {
             await _httpService.GetResponseAsync(url, Method.Delete, await GetHeaders());
         }

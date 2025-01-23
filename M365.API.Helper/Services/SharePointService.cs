@@ -39,7 +39,7 @@ namespace M365.API.Helper.Services
         /// <param name="acceptLanguage">Optional localization you wish to use (e.g., en-US, fi-FI), defaults to the SharePoint site default language.</param>
         /// <returns>A single item deserialized into the provided object type.</returns>
 
-        private async Task<T?> Get<T>(string url, string? contentType = null, string? acceptLanguage = null)
+        public async Task<T?> Get<T>(string url, string? contentType = null, string? acceptLanguage = null)
         {
             var response = await _httpService.GetResponseAsync(url, Method.Get, await GetHeaders(url, contentType, acceptLanguage));
 
@@ -55,7 +55,7 @@ namespace M365.API.Helper.Services
         /// <param name="acceptLanguage">Optional localization you wish to use (e.g., en-US, fi-FI), defaults to the SharePoint site default language.</param>
         /// <param name="items">When recursively paging through the retrieved items, this parameter contains the items collected so far.</param>
         /// <returns>A collection of items deserialized into the provided object type.</returns>
-        private async Task<IEnumerable<T>> GetCollection<T>(string url, string? contentType = null, string? acceptLanguage = null, IEnumerable<T>? items = null)
+        public async Task<IEnumerable<T>> GetCollection<T>(string url, string? contentType = null, string? acceptLanguage = null, IEnumerable<T>? items = null)
         {
             items ??= [];
 
@@ -82,7 +82,7 @@ namespace M365.API.Helper.Services
         /// <param name="contentType">Optional content type, defaults to application/json;odata=nometadata</param>
         /// <param name="acceptLanguage">Optional localization you wish to use (e.g., en-US, fi-FI), defaults to the SharePoint site default language.</param>
         /// <returns>The created object</returns>
-        private async Task<T?> Post<T>(string url, string? body = null, string? contentType = null, string? acceptLanguage = null)
+        public async Task<T?> Post<T>(string url, string? body = null, string? contentType = null, string? acceptLanguage = null)
         {
             var response = await _httpService.GetResponseAsync(url, Method.Post, await GetHeaders(url, contentType), body, contentType);
 
@@ -98,7 +98,7 @@ namespace M365.API.Helper.Services
         /// <param name="contentType">Optional content type, defaults to application/json;odata=nometadata</param>
         /// <param name="acceptLanguage">Optional localization you wish to use (e.g., en-US, fi-FI), defaults to the SharePoint site default language.</param>
         /// <returns>The updated object</returns>
-        private async Task<T?> Patch<T>(string url, string body, string? contentType = null, string? acceptLanguage = null)
+        public async Task<T?> Patch<T>(string url, string body, string? contentType = null, string? acceptLanguage = null)
         {
             var headers = await GetHeaders(url, contentType, acceptLanguage);
             headers.Add("X-HTTP-Method", "MERGE");
@@ -118,7 +118,7 @@ namespace M365.API.Helper.Services
         /// <param name="contentType">Optional content type, defaults to application/json;odata=nometadata</param>
         /// <param name="acceptLanguage">Optional localization you wish to use (e.g., en-US, fi-FI), defaults to the SharePoint site default language.</param>
         /// <returns>The added object</returns>
-        private async Task<T?> Put<T>(string url, string body, string? contentType = null, string? acceptLanguage = null)
+        public async Task<T?> Put<T>(string url, string body, string? contentType = null, string? acceptLanguage = null)
         {
             var headers = await GetHeaders(url, contentType, acceptLanguage);
             headers.Add("X-HTTP-Method", "PUT");
@@ -134,7 +134,7 @@ namespace M365.API.Helper.Services
         /// </summary>
         /// <param name="url">URL of the request</param>
         /// <returns></returns>
-        private async Task Delete(string url)
+        public async Task Delete(string url)
         {
             var headers = await GetHeaders(url);
             headers.Add("X-HTTP-Method", "DELETE");
