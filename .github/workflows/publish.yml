@@ -1,8 +1,6 @@
 name: Publish to NuGet
 on:
   push:
-    tags:
-      - '*.*.*'
     branches: 
       - main
 jobs:
@@ -23,11 +21,8 @@ jobs:
         
       - name: Package
         run: >
-          dotnet pack --no-restore --no-build --configuration Release
-          -p:PackageVersion=${{ github.ref_name }} --output .
+          dotnet pack --no-restore --no-build --configuration Release --output .
 
       - name: Publish
         run: >
-          dotnet nuget push PackageUtils.${{ github.ref_name }}.nupkg
-          -s https://nuget.pkg.github.com/laurakokkarinen/index.json
-          -k ${{ secrets.NUGET_AUTH_TOKEN }}
+          dotnet nuget push PackageUtils.${{ github.ref_name }}.nupkg -s https://nuget.pkg.github.com/laurakokkarinen/index.json -k ${{ secrets.NUGET_AUTH_TOKEN }}
