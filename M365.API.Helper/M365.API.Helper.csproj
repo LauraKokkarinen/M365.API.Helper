@@ -6,11 +6,11 @@
     <Nullable>enable</Nullable>
     <!-- NuGet package information -->
     <PackageId>M365.API.Helper</PackageId>
-    <Authors>Laura Kokkarinen</Authors>
     <PackageDescription>Offers extendable helper classes for calling Microsoft Graph and SharePoint Online REST APIs, including authentication.</PackageDescription>
+    <Version>1.0.4</Version>
+    <Authors>Laura Kokkarinen</Authors>
     <PackageProjectUrl>https://github.com/LauraKokkarinen/M365.API.Helper/pkgs/nuget/M365.API.Helper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/LauraKokkarinen/M365.API.Helper</RepositoryUrl>
-    <Version>1.0.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
