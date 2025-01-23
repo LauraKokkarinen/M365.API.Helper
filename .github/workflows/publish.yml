@@ -1,0 +1,31 @@
+name: Publish to NuGet
+on:
+  push:
+    branches:
+      - main
+jobs:
+  publish:
+    name: Build, package, and publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+        
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '8.x.x'
+          
+      - name: Build
+        run: dotnet build --configuration Release
+        
+      - name: Package
+        run: >
+          dotnet pack --no-restore --no-build --configuration Release
+          -p:PackageVersion=${{ github.ref_name }} --output .
+
+      - name: Publish
+        run: >
+          dotnet nuget push PackageUtils.${{ github.ref_name }}.nupkg
+          -s https://nuget.pkg.github.com/laurakokkarinen/index.json
+          -k ${{ secrets.NUGET_AUTH_TOKEN }}
