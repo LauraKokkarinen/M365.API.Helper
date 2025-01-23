@@ -4,7 +4,11 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageId>M365.API.Helper</PackageId>
+    <Version>1.0.2</Version>
+    <Authors>Laura Kokkarinen</Authors>
+    <PackageDescription>Offers extendable helper classes for calling Microsoft Graph and SharePoint Online REST APIs.</PackageDescription>
+    <RepositoryUrl>https://github.com/LauraKokkarinen/M365.API.Helper</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
