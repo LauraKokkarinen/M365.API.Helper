@@ -21,12 +21,8 @@ namespace M365.API.Helper.Services
             var request = new HttpRequestMessage(new HttpMethod(method.ToString()), url);
 
             if (headers != null)
-            {
                 foreach (var header in headers)
-                {
                     request.Headers.Add(header.Key, header.Value);
-                }
-            }
 
             request.Content = body != null ? new StringContent(body, Encoding.UTF8) : null;
 
@@ -56,19 +52,9 @@ namespace M365.API.Helper.Services
             var responseBody = await ReadResponseBody(response);
 
             if (response?.IsSuccessStatusCode == true)
-            {
-                if (response?.StatusCode == HttpStatusCode.Accepted && response.Headers.Location != null)
-                    responseBody = GetResponseHeaders(response);
+                return (response?.StatusCode == HttpStatusCode.Accepted && response.Headers.Location != null) ? GetResponseHeaders(response) : responseBody;
 
-                return responseBody;
-            }
-            else
-            {
-                if (response?.StatusCode == HttpStatusCode.Conflict && response.Headers.Location != null)
-                    return GetResponseHeaders(response);
-
-                throw new Exception(responseBody?.ToString() ?? response?.ReasonPhrase);
-            }
+            return (response?.StatusCode == HttpStatusCode.Conflict && response.Headers.Location != null) ? GetResponseHeaders(response) : throw new Exception(responseBody?.ToString() ?? response?.ReasonPhrase);
         }
 
         private static async Task<JsonElement?> ReadResponseBody(HttpResponseMessage? response)
