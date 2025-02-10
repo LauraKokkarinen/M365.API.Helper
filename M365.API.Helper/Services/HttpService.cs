@@ -59,20 +59,17 @@ namespace M365.API.Helper.Services
 
         private static async Task<JsonElement?> ReadResponseBody(HttpResponseMessage? response)
         {
-            if (response != null && response?.Content != null)
-            {
-                try
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-                    return JsonSerializer.Deserialize<JsonElement>(content);
-                }
-                catch (Exception) // Response content is not in JSON format
-                {
-                    return null;
-                }
-            }
+            if (response == null || response?.Content == null) return null;
 
-            return null;
+            try
+            {
+                string content = await response.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<JsonElement>(content);
+            }
+            catch (Exception) // Response content is not in JSON format
+            {
+                return null;
+            }
         }
 
         private static JsonElement GetResponseHeaders(HttpResponseMessage response)
